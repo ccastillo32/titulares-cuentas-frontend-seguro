@@ -1,0 +1,77 @@
+<div id="contenedor">
+
+    <div id="cerrarSesion">
+        <a (click)="cerrarSesion()"
+            [routerLink]="">Cerrar sesión</a>
+    </div>
+
+    <div *ngIf="mensajeInfo" id="mensajesInfo">
+        {{ mensajeInfo }}
+    </div>
+
+    <div *ngIf="mensajeError" id="mensajesError">
+        {{ mensajeError }}
+    </div>
+
+    <div *ngIf="!cargando">
+
+        <div id="encabezadoTabla">
+            Listado de titulares
+        </div>
+
+        <div id="contenedorBoton">
+            <button (click)="irACrearTitular()">Crear titular</button>
+        </div>
+
+        <!-- Tabla de cuentas -->
+
+        <table id="disenoDeTabla">
+            <thead>
+                <th>CUIT</th>
+                <th>Tipo</th>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Razón social</th>
+                <th>Año de fundacion</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let titular of listado">
+                    <td>{{ titular.cuit }}</td>
+                    <td>{{ titular.tipo }}</td>
+
+                    <ng-container *ngIf="titular.tipo == 'FISICO'">
+                        <td>{{ titular.dni }}</td>
+                        <td>{{ titular.nombre }} {{ titular.apellido }}</td>
+                        <td colspan="2" class="noAplica">No aplica</td>
+                    </ng-container>
+
+                    <ng-container *ngIf="titular.tipo == 'JURIDICO'">
+                        <td colspan="2" class="noAplica">No aplica</td>
+                        <td>{{ titular.razonSocial }}</td>
+                        <td>{{ titular.anioFundacion }}</td>
+                    </ng-container>
+
+                    <td>
+                        <a (click)="editarTitular(titular.cuit)"
+                           [routerLink]="">Editar</a>
+                    </td>
+
+                    <td>
+                        <a (click)="eliminarTitular(titular.cuit)"
+                            [routerLink]="">Eliminar</a>
+                    </td>
+
+                </tr>
+
+                <tr *ngIf="!listado?.length">
+                    <td colspan="8">Sin datos</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+<div id="contenedor">
+    <div id="encabezadoFormulario">
+        <label class="titulo" style="font-weight: bold">Login</label>
+    </div>
+
+    <div id="mensajes" *ngIf="mensajeError">
+        mensaje
+    </div>
+            
+    <div id="contenedorFormulario">
+        <form class="formulario">
+            
+            <table class="tablaFormulario">
+                <tbody>
+                    
+                    <tr>
+                        <td class="nombreCampo">username: *</td>
+                        <td class="inputCampo">
+                            <input type="text" name="username" [(ngModel)]="username">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="nombreCampo">password: *</td>
+                        <td class="inputCampo">
+                            <input type="password" name="password" [(ngModel)]="password">
+                        </td>
+                    </tr>
+
+                    <tr>
+                       <td colspan="2">
+                            <button (click)="acceder()">
+                                Acceder
+                            </button>
+                       </td> 
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <a (click)="crearNuevo()"
+                                [routerLink]="">¿No tienes usuario? Registrar nuevo</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </form>
+    </div>     
+    
+</div>

@@ -1,0 +1,102 @@
+<div id="contenedor">
+        
+        <div id="cerrarSesion">
+            <a (click)="cerrarSesion()"
+                [routerLink]="">Cerrar sesión</a>
+        </div>
+    
+        <div id="encabezadoFormulario">
+            <label class="titulo">{{ titulo }}</label>
+        </div>
+    
+        <div id="mensajes" *ngIf="mensajeError">
+            {{  mensajeError }}
+        </div>
+                
+        <div id="contenedorFormulario">
+            <form class="formulario">
+                
+                <table class="tablaFormulario">
+                    <tbody>
+                        
+                        <tr>
+                            <td class="nombreCampo">CUIT: *</td>
+                            <td class="inputCampo">
+                                <input type="text" name="cuit" [(ngModel)]="cuit" maxlength="13" *ngIf="!modoEdicion">
+                                <label *ngIf="modoEdicion">{{ cuit }}</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="nombreCampo">Tipo: *</td>
+                            <td class="inputCampo">
+                                <select name="tipo" [(ngModel)]="tipo" *ngIf="!modoEdicion">
+                                    <option *ngFor="let opcion of getSelectorTipoTitular()">{{ opcion }}</option>
+                                </select>
+                                <label *ngIf="modoEdicion">{{ tipo }}</label>
+                            </td>
+                        </tr>
+
+                        <ng-container *ngIf="tipo == 'FISICO'">
+
+                                <tr>
+                                    <td class="nombreCampo">DNI: *</td>
+                                    <td class="inputCampo">
+                                        <input type="text" name="dni" [(ngModel)]="dni" maxlength="8" *ngIf="!modoEdicion">
+                                        <label *ngIf="modoEdicion">{{ dni }}</label>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="nombreCampo">Nombres: *</td>
+                                    <td class="inputCampo">
+                                        <input type="text" name="nombre" [(ngModel)]="nombre">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="nombreCampo">Apellidos: *</td>
+                                    <td class="inputCampo">
+                                        <input type="text" name="apellidos" [(ngModel)]="apellido">
+                                    </td>
+                                </tr>
+
+                        </ng-container>
+
+                        <ng-container *ngIf="tipo == 'JURIDICO'">
+
+                                <tr>
+                                    <td class="nombreCampo">Razón social: *</td>
+                                    <td class="inputCampo">
+                                        <input type="text" name="razonSocial" [(ngModel)]="razonSocial">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="nombreCampo">Año fundación: *</td>
+                                    <td class="inputCampo">
+                                        <input type="number" name="anioFundacion" [(ngModel)]="anioFundacion" maxlength="4">
+                                    </td>
+                                </tr>
+
+                        </ng-container>
+
+                    </tbody>
+                </table>
+    
+            </form>
+        </div>     
+        
+        <div id="botones">
+    
+            <button (click)="crearTitular()">
+                {{ modoEdicion ? 'Actualizar' : 'Crear' }}
+            </button>
+
+            <button (click)="cancelar()"
+                    class="botonSecundario">
+                    Cancelar
+            </button>
+    
+        </div>
+    </div>

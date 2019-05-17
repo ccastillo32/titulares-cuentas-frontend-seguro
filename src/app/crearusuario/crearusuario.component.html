@@ -1,0 +1,62 @@
+<div id="contenedor">
+    <div id="encabezadoFormulario">
+        <label class="titulo">{{ titulo }}</label>
+    </div>
+
+    <div id="mensajes" *ngIf="mensajeError">
+        {{  mensajeError }}
+    </div>
+    
+    <div id="contenedorFormulario">
+        <form class="formulario">
+            
+            <table class="tablaFormulario">
+                <tbody>
+                    
+                    <tr>
+                        <td class="nombreCampo">Username: *</td>
+                        <td class="inputCampo">
+                            <input type="text" name="username" [(ngModel)]="username">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="nombreCampo">Password: *</td>
+                        <td class="inputCampo">
+                            <input type="password" name="password" [(ngModel)]="password">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="nombreCampo">Nombres: *</td>
+                        <td class="inputCampo">
+                            <input type="text" name="nombre" [(ngModel)]="nombre">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="nombreCampo">Apellidos: *</td>
+                        <td class="inputCampo">
+                            <input type="text" name="apellido" [(ngModel)]="apellido">
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </form>
+    </div>     
+    
+    <div id="botones">
+
+        <button (click)="crearUsuario()">
+            Crear
+        </button>
+
+        <button (click)="cancelar()"
+                class="botonSecundario">
+                Cancelar
+        </button>
+
+    </div>
+</div>

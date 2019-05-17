@@ -1,0 +1,73 @@
+#contenedor {
+    /*border: 1px solid;*/
+    margin: 3%;
+}
+
+#encabezadoFormulario {
+    /*border: 1px solid;*/
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.titulo {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#mensajes {
+    margin-bottom: 20px;
+    padding: 3px;
+    border: 1px dashed;
+    width: 70%;
+    background-color: rgb(255, 204, 204);
+}
+
+#contenedorFormulario {
+    /*border: 1px solid;*/
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgb(230, 230, 255) !important;
+    border: 1px dashed;
+    width: 60%;
+}
+
+
+.tablaFormulario {
+    /*border: 1px solid;*/
+    width: 100%;
+    padding: 5px;
+    border-collapse: collapse;
+}
+
+.tablaFormulario .nombreCampo {
+    width: 30%;
+}
+
+.tablaFormulario .inputCampo {
+    width: 80%;
+}
+
+.tablaFormulario .inputCampo input {
+    width: 60%;
+}
+
+.tablaFormulario .mensaje {
+    width: 40%;
+    text-align: left;
+}
+
+.tablaFormulario .mensaje .error {
+    color: red;
+}
+
+
+#botones {
+    /*border: 1px solid;*/
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+#botones .botonSecundario {
+    margin-left: 20px;
+}
