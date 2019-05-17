@@ -85,6 +85,11 @@ export class CrearTitularComponent implements OnInit {
         );
     }
 
+    cerrarSesion() : void {
+        sessionStorage.removeItem('token');
+        this.router.navigate(['/login']);
+    }
+
     private getTitularFisico() : TitularFisico {
         let titular : TitularFisico = new TitularFisico();
         titular.cuit = this.cuit;

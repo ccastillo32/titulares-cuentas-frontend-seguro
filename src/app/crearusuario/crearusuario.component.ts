@@ -7,7 +7,7 @@ import { UsuarioService } from '../service/usuarioservice';
 import { Usuario } from '../model/usuario';
 
 @Component({
-    template: 'crear-usuario',
+    selector: 'crear-usuario',
     templateUrl: './crearusuario.component.html'
 })
 export class CrearUsuarioComponent implements OnInit {

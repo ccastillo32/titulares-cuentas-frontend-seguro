@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    template: 'cerrar-sesion',
+    selector: 'cerrar-sesion',
     templateUrl: './cerrarsesion.component.html'
 })
 export class CerrarSesionComponent {
