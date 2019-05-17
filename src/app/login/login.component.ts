@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     }
 
     acceder() : void {
+        this.mensajeError = 'autenticando ... por favor espere.'
         this.loginService.login(this.username, this.password).subscribe(
             response => { 
                 console.log(response);
